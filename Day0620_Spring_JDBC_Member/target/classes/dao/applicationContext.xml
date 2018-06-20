@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		<!--  
+			예제 목표 : Spring jdbc를 이용한 dao 작성하고
+					dao를 Spring Container에 등록해서 사용
+					
+				Spring Container에 등록해야 할 bean 목록
+				1. DateSource (url, user, pass, 드라이버정보)
+				2. JdbcTemplate (연결, 구문객체생성, 예외처리, 자원관리 등)
+				3. dao
+		 -->
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="username" value="kwh"></property>
+		<property name="password" value="1"></property>
+	</bean>	 
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="memberDao" class="dao.MemberDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+</beans>
+
