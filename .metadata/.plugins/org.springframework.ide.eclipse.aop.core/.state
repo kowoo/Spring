@@ -5,4 +5,5 @@
 <aop-project name="Day0620_Spring"/>
 <aop-project name="Day0620_Spring_JDBC_Member2"/>
 <aop-project name="Day0620_Spring_JDBC"/>
+<aop-project name="Day0621_Spring_JDBC"/>
 </aop-reference-model>

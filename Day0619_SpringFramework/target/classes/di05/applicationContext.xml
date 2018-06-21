@@ -15,7 +15,7 @@
 	        <context:component-scan> 태그 작성
 	 -->
 	<context:component-scan base-package="di05"/>
-	<!-- 이렇게 되면 빈 id값이 어떻게 되냐고? 예를 들어 Car이라는 클래스가 있다면 소문자 car로 됨. -->
+	<!-- 빈 id값은 Car이라는 클래스가 있다면 소문자 car로 됨. -->
 	<!--<bean id = "Car" class= "di05.Car"></bean> 이런 셈.-->
 	<!-- 만약 id값을 바꾸고 싶다면? 클래스에 @Component("원하는 이름") 끝!-->
 
