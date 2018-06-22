@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 
+		DB접속 정보	: enviroments
+		모델클래스 정보  : typealiases
+		매퍼파일 위치 정보: mappers
+		
+	 -->
+	 <typeAliases>	<!-- 타입 == 풀 패키지 명 alias = 특정 클래스의 별명을 지정-->
+	 	<typeAlias type="model.Student" alias="student"/>
+	 </typeAliases>
+	 <environments default="development"> 
+		<environment id="development"> <!-- 내가 원하는 이름 -->
+			<transactionManager type="MANAGED">
+			</transactionManager>
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+				<property name="username" value="kwh"/>
+				<property name="password" value="1"/>
+			</dataSource>
+		</environment>
+	 </environments>
+	 <mappers>
+	 	<mapper resource="dao/studentMapper.xml"/>
+	 </mappers>
+</configuration>

@@ -82,6 +82,7 @@ public class BoardDao implements IBoardDao {
 	@Override
 	public List<Board> selectAll() {
 		String sql = "select * from board";
+		//jdbcTemplate.getJdbcOperations().queryForList(sql);
 		return jdbcTemplate.query(sql, boardMapper);
 	}
 	
