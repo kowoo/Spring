@@ -15,7 +15,7 @@
 			</dataSource>
 		</environment>
 	</environments>
-	<mappers>		<!-- 클래스나 인터페이스는 클래스패스 작성. ~~.~~~확장자 제외 -->
+	<mappers>		<!-- 클래스나 인터페이스는 클래스패스 작성. ~~.java 같은 확장자 부분은 생략한다 -->
 		<mapper class="dao.StudentMapper"/>
 	</mappers>
 </configuration>

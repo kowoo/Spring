@@ -11,7 +11,7 @@ public class Car {
 								//의존성 주입 대상 타입의 bean이 존재하지 않을 경우 예외 발생!
 								//단, required=false 속성을 지정하면 의존성 주입 객체가 존재하지 않아도 bean이 생성된다.(대신 널포인트가 뜨겠지? 익셉션 처리)
 								//근데 required=false는 잘 사용되지 않는다고하네.
-	@Qualifier("kTire")
+	@Qualifier("chingTire")
 	private Tire tire;
 //  @Autowired가 tire.setTire(~)를 호출해주는 셈
 //  즉, 의존성 주입!

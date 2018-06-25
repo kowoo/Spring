@@ -6,5 +6,3 @@
 3. model 클래스 작성하기
 4. dao 클래스 작성하기 (interface)
    -insert,update,delete,selectOne,selectAll
-   
-     

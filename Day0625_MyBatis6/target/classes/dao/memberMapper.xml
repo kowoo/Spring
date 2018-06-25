@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.MemberDao"> <!-- mapper와 짝궁이 되는 interface 경로 -->
+	<insert id="insertMember" parameterType="member">
+		<!-- interface에는 실행할 sql id와 동일한 이름의 메서드가 있어야함 -->
+		INSERT INTO member
+		VALUES (#{NUM},#{GENDER},#{NAME},#{AGE})
+	</insert>
+	<update id="updateMember" parameterType="map">
+		UPDATE member SET
+			 gender = #{GENDER},
+			   name = #{NAME},
+			 	age = #{AGE}
+		  WHERE num = #{NUM}
+	</update>
+	<delete id="deleteMember" parameterType="map">
+		DELETE member WHERE num = #{num}
+	</delete>
+	<select id="selectOne" parameterType="map" resultType="map">
+		SELECT * FROM member WHERE num = #{NUM}
+	</select>
+	<select id="selectAll" resultType="map">
+		SELECT * FROM member
+	</select>
+</mapper>

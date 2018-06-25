@@ -1,0 +1,4 @@
+Dependency 등록
+Spring : core, conjext, jdbc
+MyBatis : mybatis, mybatis-spring
+oracle : ojdbc
