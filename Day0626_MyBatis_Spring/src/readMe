@@ -1,0 +1,29 @@
+Maven설정
+스프링: 코어, 컨텍스트, jdbc
+마이바티스: 마이바티스, 마이바티스-스프링
+오라클: jdbc
+
+동적쿼리: 상황에 맞게 특정한 sql을 만들어낼 수 있는 기능을 제공
+ ex) sname값이 없으면 null이 아니라 '이름없음' 으로 넣고 싶다!
+
+1. <choose> 조건에 따라 작성할 sql 문을 선택할 때 사용
+2. <sql> 반복되는 sql을 따로 작성해서 필요할 때 사용
+	부를때 <include>를 이용한다!
+3. <if> 특정 조건일 때 실행할 문장 작성
+
+제목검색, 이름검색, 제목+내용 검색
+searchBoard()
+검색어, 검색종류
+String, keyword
+
+검색타입 type, 각각의 검색 타입별로 keyword를 해당 파라미터로 넣어준다
+1. 제목검색 title
+2. 이름검색 name
+3. 내용검색 content
+4. 제목+내용검색 title, content
+
+1. select * from board where 1=0 or title = 'title'
+2. select * from board where 1=0 or name = 'name'
+3. select * from board where 1=0 or content = 'content'
+4. select * from board where 1=0 or title = 'title' or content = 'content'
+5. select * from board where 1=0 or 1=1

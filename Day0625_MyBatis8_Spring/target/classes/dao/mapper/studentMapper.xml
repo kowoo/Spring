@@ -7,8 +7,8 @@
 	</insert>
 	<update id="updateStudent" parameterType="student">
 		UPDATE student SET
-				sname   = #{sname},
-				sgrade  = #{sgrade}
+				sname   = #{sname}
+				,sgrade  = #{sgrade}
 				WHERE
 				snum    = #{snum}
 	</update>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="Day0619_SpringFramework"/>
+<aop-project name="Day0626_AOP"/>
 <aop-project name="Day0625_MyBatis8_Spring"/>
 <aop-project name="Day0620_Spring_JDBC_Member"/>
+<aop-project name="Day0626_MyBatis_Spring"/>
 <aop-project name="Day0625_MyBatis6"/>
 <aop-project name="Day0620_Spring_lifeCycle_Annotation"/>
 <aop-project name="Day0620_Spring_JDBC"/>

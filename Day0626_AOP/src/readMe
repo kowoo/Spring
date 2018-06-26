@@ -1,0 +1,28 @@
+AOP
+구현하고자 하는 기능을 핵심관심사항과 공통관심사항으로 분리하여 작성
+특정 기능을 실행할 때 부가적인 기능을 같이 실행하고 싶을 때 사용
+ ex) Service의 메서드를 실행할 때, 기록(log)을 남긴다
+ 
+1. 해야할 일 
+기능구현 :	핵심기능 구현
+		공통기능 구현
+AOP 적용: 핵심기능 실행할 때, 공통기능이 실행되도록 설정
+
+AOP를 이해하기 위한 프록시 패턴 이해
+코드의 중복을 막기 위해서 프록시객체를 이용한다.
+프록시 객체 : 핵심기능을 대신 불러주는 객체
+
+Spring Framework에서 AOP 적용하기
+Spring : core, context, aop
+aspectj : aspercjrt, aspectjweaver
+
+advice 종류
+before
+after-returning : target이 정상적으로 종료되면 실행되는 코드 
+after-throwing :  target이 비정상적으로 종료되면 실행되는 코드 
+after : target 수행 후 정상, 비정상 상관없이 실행되는 코드
+	after시리즈들의 실행 순서는 연관성이 없다.
+	그러므로 순서의 개연성이 있는 프로그래밍을 하면 안됨!
+	
+around
+around : target 앞뒤로 실행 될 코드를 정의

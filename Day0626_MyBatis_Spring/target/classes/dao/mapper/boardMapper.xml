@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.BoardDao">
+	<insert id="insertBoard" parameterType="map">
+		insert into board 
+		     values (
+		             board_seq.nextval
+		             ,<include refid="title"></include>
+		             ,<include refid="name"></include>
+		             ,#{PASSWORD}
+		             ,#{EMAIL}
+		             ,#{CONTENT}
+		             ,0
+		             ,sysdate)
+			<!-- 동적쿼리: 상황에 맞게 특정한 sql을 만들어낼 수 있는 기능을 제공 -->
+			<!-- sname값이 없으면 null이 아니라 '이름없음' 으로 넣고 싶다! -->
+	</insert>
+	<update id="updateBoard" parameterType="map">
+			UPDATE board SET
+		        <include refid="title"></include>
+		        ,<include refid="name"></include>
+				,password = #{PASSWORD}
+				,email = #{EMAILL}
+				,content = #{CONTENT}
+				WHERE num = #{NUM}
+	</update>
+	<delete id="deleteBoard" parameterType="int">
+			DELETE board WHERE num = #{NUM}
+	</delete>
+	<select id="selectOne" parameterType="int" resultType="map">
+			SELECT * FROM board WHERE num = #{NUM}
+	</select>
+	<select id="selectAll" parameterType="map" resultType="map">
+			SELECT * FROM board
+	</select>
+	
+	<select id="searchBoard" parameterType="map" resultType="map">
+			SELECT * 
+			FROM board
+			WHERE 1=0
+		 	<if test="TITLE != null"> or title like '%${TITLE}%' </if>
+		 	<if test="NAME != null"> or name like '%${NAME}%' </if>
+		 	<if test="CONTENT != null"> or content like '%${CONTENT}%' </if>
+		 	<if test="type == 0 "> or 1=1 </if>
+	</select>
+	
+	<sql id="title">
+		<choose>
+			<when test="TITLE != null">
+				#{TITLE}
+			</when>
+			<otherwise>
+				'제목없음'
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="name">
+		<choose>
+			<when test="NAME != null">
+				#{NAME}
+			</when>
+			<otherwise>
+				'이름없음'
+			</otherwise>
+		</choose>
+	</sql>
+</mapper>
