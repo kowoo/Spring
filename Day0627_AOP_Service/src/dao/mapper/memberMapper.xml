@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.MemberDao">
+	<insert id="insertMember" parameterType="member">
+		INSERT INTO member
+		VALUES (
+				member_seq.nextval
+				,<include refid="gender"></include>
+				,<include refid="name"></include>
+				,<include refid="age"></include>
+		)
+	</insert>
+	<update id="updateMember" parameterType="member">
+		UPDATE member
+		SET	<include refid="gender"></include>
+			,<include refid="name"></include>
+			,<include refid="age"></include>
+		WHERE num = #{NUM}
+	</update>
+	<delete id="deleteMember" parameterType="int">
+		DELETE member WHERE num = #{NUM}
+	</delete>
+	<select id="selectOne" parameterType="int" resultType="member">
+		SELECT * FROM member WHERE num = #{NUM}
+	</select>
+	<select id="selectAll" resultType="member">
+		SELECT * FROM member
+	</select>
+	
+	
+	<sql id="gender">
+		<choose>
+			<when test="GENDER != null">
+				#{GENDER}
+			</when>
+			<otherwise>
+				'중성'
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="name">
+		<choose>
+			<when test="NAME != null">
+				#{NAME}
+			</when>
+			<otherwise>
+				'이름없음'
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="age">
+		<choose>
+			<when test="AGE != null">
+				#{AGE}
+			</when>
+			<otherwise>
+				'비밀~'
+			</otherwise>
+		</choose>
+	</sql>
+</mapper>
