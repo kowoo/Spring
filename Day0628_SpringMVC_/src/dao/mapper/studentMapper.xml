@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.StudentDao">
+	<insert id="insertStudent" parameterType="student">
+		INSERT INTO student
+		VALUES (
+				student_seq.nextval
+				,<include refid="name"></include>
+				,<include refid="grade"></include>
+		)
+	</insert>
+	<update id="updateStudent" parameterType="student">
+		UPDATE student
+		SET	sname = <include refid="name"></include>
+			,sgrade = <include refid="grade"></include>
+		WHERE snum = #{num}	
+	</update>
+	<delete id="deleteStudent" parameterType="int">
+		DELETE student WHERE snum = #{num}
+	</delete>
+	<select id="selectOne" parameterType="int" resultMap="studentMap">
+		SELECT * FROM student WHERE snum = #{num} 
+	</select>
+	<select id="selectAll" resultMap="studentMap">
+		SELECT * FROM student
+	</select>
+	<sql id="name">
+		<choose>
+			<when test="name != null">
+				#{name}
+			</when>
+			<otherwise>
+				'이름없음'
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="grade">
+		<choose>
+			<when test="grade != null">
+				#{grade}
+			</when>
+			<otherwise>
+				'학년없음'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<resultMap type="student" id="studentMap">
+		<result property="num" column="SNUM"/>
+		<result property="name" column="SNAME"/>
+		<result property="grade" column="SGRADE"/>
+	</resultMap>
+</mapper>

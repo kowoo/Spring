@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="dao2.MessageDao"/>
-<fullyQualifiedTypeName name="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate"/>
 <fullyQualifiedTypeName name="dao3.IBoardDao"/>
 <fullyQualifiedTypeName name="model.Board"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.core.RowMapper"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
 <fullyQualifiedTypeName name="dao.StudentDao"/>
 <fullyQualifiedTypeName name="service.StudentService"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 </qualifiedTypeNameHistroy>
