@@ -6,13 +6,24 @@
   		스프링 설정파일의 기본 위치는 WEB-INF/applicationContext.xml
   	-->
 	<!-- Bootstraps the root web application context before servlet initialization -->
+	
+	<!-- 공용 컨테이너 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
+	<!-- ContextLoaderListener의 설정파일 기본 경로 변경 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+	
+	<!-- 특정한 처리를 위한 컨테이너 -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		
+		<!-- servlet 경로 설정 -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/servlet-context.xml</param-value>

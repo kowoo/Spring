@@ -39,9 +39,7 @@ root-container : ContextLoaderListener
 
 1. ContextLoaderListener를 컨테이너에 등록?
 
-
 학생정보 읽어와서 화면에 출력하기 
 요청 : studentList
 화면 : studentList.jsp
 Controller : StudentController
-
