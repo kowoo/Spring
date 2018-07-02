@@ -1,0 +1,49 @@
+Interceptor
+필터와 비슷한 역할을 한다.
+
+요청을 처리하기 전에 인터셉터가 요청을 가로채서 먼저 확인을 하고 처리한다.
+
+Spring MVC 구성하기
+	1. Maven
+	2. dependency
+		Spring : core, context, jdbc, web, webmvc, aop
+		oracle : ojdbc
+		Mybatis: Mybatis, Mybatis-spring
+		aspectj: aspectjrt, aspectjweaver
+		javax  : jstl
+	3. package
+		dao(interface)
+			dao.mapper
+		service(interface, implements)
+		controller(/member/memberList 요청처리) + interceptor
+		model(Member)
+	4. jsp
+		memberList
+	
+interceptor 등록하기
+	1. interceptor 클래스 작성 (HandlerInterceptorAdapter를 상속받아서 구현함)
+	2. 요청을 가로채서 실행할 내용 구현(preHandle, postHandle 재정의)
+	3. springContainer bean등록.
+	4. 해당 interceptor가 가로챌 요청에 대한 명시
+	
+로그인
+회원가입
+main
+회원정보 수정화면 
+회원목록 화면
+
+요청정리(/member)
+/loginForm 로그인 페이지 요청
+/login 로그인 요청
+/logout 로그아웃 요청
+/joinForm 가입 페이지 요청
+/join 가입 요청
+/main 메인 페이지 요청
+/updateForm 정보 수정 페이지 요청
+/update 정보 수정 요청
+
+기능
+1. 로그인 성공시 session:userid&main 실패시 login
+2. main: 회원목록보기, 회원정보수정, 로그아웃
+3. LoginCheckInterceptor로 거름거름
+*Controller에서 Session에 접근하려면 HttpSession session을 파라미터에 적으면 된다.

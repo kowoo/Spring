@@ -55,6 +55,11 @@
 		<artifactId>spring-webmvc</artifactId>
 		<version>${org.springframework-version}</version>
 	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aop</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency> 
   	
   	<!-- 오라클 -->
   	<dependency>
@@ -76,8 +81,8 @@
 	    <artifactId>mybatis-spring</artifactId>
 	    <version>1.3.1</version>
 	</dependency>  	
-  	
-  	<!-- aop -->
+
+	<!-- 아스펙트제이 -->  	
   	<dependency>
 		<groupId>org.aspectj</groupId>
 		<artifactId>aspectjrt</artifactId>

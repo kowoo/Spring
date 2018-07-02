@@ -18,10 +18,11 @@ Controller에서 요청 파라미터 얻어오기
 public String test(int grade) {}
 예) /test?gard=1
 요청 파라미터의 이름과 메서드 파라미터의 이름을 맞춰주면 된다.
+spring에서는 데이터 타입에 맞춰 자동으로 변환해준다.
 
 만약 요청 파라미터 이름과 컨트롤러 메서드의 파라미터 이름이 다를 경우
 @RequestParam(value = "grade") int g로 매칭시켜 줄 수 있다.
-그리고 @RequestParam(value = "grade", defaultValue="n")을 통해 n을 파라미터의 기본값으로 줄 수도 있다.
+그리고 @RequestParam(value = "grade", defaultValue="1") int g를 통해 1을 파라미터의 기본값으로 줄 수도 있다.
 
 addStudent.jsp에서 학생정보를 입력받아서 DB에 저장하는 요청을 처리하자.
 해야할 것:
