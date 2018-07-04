@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.MessageDao">
+	
+	<insert id="insertMessage" parameterType="message">
+		INSERT INTO message4
+		VALUES (message4_seq.nextval
+				,#{name}
+				,#{password}
+				,#{message}
+		)
+	</insert>
+	<delete id="deleteMessage" parameterType="int">
+		DELETE message4 WHERE id = #{id}
+	</delete>
+	<select id="selectOne" parameterType="int" resultType="message">
+		SELECT * FROM message4 WHERE id = #{id}
+	</select>
+	<select id="selectAll" resultType="message">
+		SELECT * FROM message4
+	</select>
+	<select id="selectCount" resultType="int">
+		SELECT count(*) FROM message4
+	</select>
+	<select id="selectList" parameterType="map" resultType="message">
+		SELECT * FROM
+			(SELECT rownum as rnum, m.id, m.password, m.name, m.message
+			FROM (SELECT id, password, name, message
+				FROM message4 ORDER BY id DESC) m )
+		WHERE rnum between #{firstRow} and #{endRow}
+	</select>
+	
+</mapper>

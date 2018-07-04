@@ -11,7 +11,7 @@ import aj.org.objectweb.asm.Handle;
 
 @Component
 public class SampleInterceptor extends HandlerInterceptorAdapter {
-
+	
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
@@ -28,7 +28,6 @@ public class SampleInterceptor extends HandlerInterceptorAdapter {
 		return true;
 	}
 	//인터셉터 동작을 확인하기 위한 클래스 
-	
 }
 
 

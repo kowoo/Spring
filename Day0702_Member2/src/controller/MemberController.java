@@ -60,6 +60,9 @@ public class MemberController {
 		m.setEmail(param.get("email").toString());
 		int result = service.memberJoin(m);
 		if(result>0) {
+			//여기에 게시글 등록 메서드를?
+			System.out.println("등록");
+			service.join(m);
 			return "loginForm";
 		} else {
 			return "joinForm";

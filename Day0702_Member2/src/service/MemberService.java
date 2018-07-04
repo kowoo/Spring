@@ -9,4 +9,5 @@ public interface MemberService {
 	public int memberUpdate(Member m);
 	public Member selectOne(String id);
 	public List<Member> selectAll();
+	public boolean join(Member member);
 }

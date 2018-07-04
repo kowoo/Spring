@@ -7,6 +7,10 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	<context:component-scan base-package="controller"></context:component-scan>
+	
+	<!-- mvc에서 사용하는 몇 가지 객체에 대해서 사용함을 선언 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
 	<!-- viewResolver는 기본으로 존재하지만, 
 	설정값을 주려면 bean으로 등록해야 한다.  -->
 	<!-- test     jsp/test.jsp -->
@@ -22,13 +26,15 @@
 		<mvc:interceptor>
 			<!-- 가로챌 요청 -->
 <!-- 			<mvc:mapping path="/member/*"/> -->
+			<mvc:mapping path="/member/main"/>
 			<mvc:mapping path="/member/memberList"/>
+			<mvc:mapping path="/member/updateForm"/>
+			<mvc:mapping path="/member/update"/>
+			<mvc:mapping path="/member/logout"/>
 			<!-- 동작할 인터셉터 -->
-			<ref bean="sampleInterceptor"/>
+			<ref bean="loginCheckIntercepter"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
-	
 </beans>
 
 
