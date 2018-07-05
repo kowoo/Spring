@@ -1,12 +1,15 @@
 package dao;
 
 import java.util.List;
-import java.util.Map;
+
+import model.Reply;
 
 public interface ReplyDao {
-	public int insertReply(Map<String, Object> reply);
-	public int updateReply(Map<String, Object> reply);
+	//insert, update, delete selectOne, selectByBoardNum;
+	public int insertReply(Reply reply);
+	public int updateReply(Reply reply);
 	public int deleteReply(int replyNum);
-	public Map<String, Object> selectOne(int replyNum);
-	public List<Map<String, Object>> selectByBoardNum(int boardNum);
+	public Reply selectOne(int replyNum);
+	public List<Reply> selectByBoardNum(int boardNum);
+	
 }

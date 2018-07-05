@@ -1,26 +1,32 @@
 package controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.Member;
 import service.MemberService;
 
-@Controller
+@Service
 @RequestMapping("/member")
 public class MemberController {
 	
 	@Autowired
-	private MemberService service;
-
+	MemberService service;
+	
 	@ResponseBody
-	@RequestMapping("/list")
-	public List<Map<String, Object>> member() {
-		System.out.println("sample/member 요청");
-		return service.selectAll();
-	}	
+	@RequestMapping("/memberList")
+	public List<Member> memberList(){
+		return service.getAllMembers();
+	}
 }
+
+
+
+
+
+
+

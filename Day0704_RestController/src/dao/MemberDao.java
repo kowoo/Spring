@@ -1,8 +1,9 @@
 package dao;
 
 import java.util.List;
-import java.util.Map;
+
+import model.Member;
 
 public interface MemberDao {
-	public List<Map<String, Object>> selectAll();
+	public List<Member> selectAll();
 }

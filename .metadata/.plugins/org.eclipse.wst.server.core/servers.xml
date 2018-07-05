@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <servers>
-  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" saveSeparateContextFiles="true" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="63">
-    <list key="modules" value0="Day0704_RestController::org.eclipse.jst.jee.server:Day0704_RestController::jst.web::3.1"/>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" saveSeparateContextFiles="true" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="71">
+    <list key="modules" value0="Day0706_NaverBook::org.eclipse.jst.jee.server:Day0706_NaverBook::jst.web::3.1" value1="Ajax_Member::org.eclipse.jst.jee.server:Ajax_Member::jst.web::3.1" value2="Day0704_RestController::org.eclipse.jst.jee.server:Day0704_RestController::jst.web::3.1"/>
   </server>
 </servers>
