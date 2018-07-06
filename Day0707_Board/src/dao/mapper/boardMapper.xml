@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.BoardDao">
+	<insert id="insertBoard" parameterType="board">
+		INSERT INTO board
+		VALUES(
+			board_seq.nextval,
+			#{title},
+			#{name},
+			#{password},
+			#{email},
+			#{content},
+			0,
+			sysdate
+		)
+	</insert>
+	<update id="updateBoard" parameterType="board">
+		UPDATE board SET
+			title = #{title},
+			password = #{password},
+			content = #{content}
+		WHERE num = #{num}
+	</update>
+	<update id="readCountUpByBoard" parameterType="int">
+		UPDATE board SET
+			readCount = readCount+1
+		WHERE num = #{num}
+	</update>
+	<delete id="deleteBoard" parameterType="int">
+		DELETE board WHERE num = #{num}
+	</delete>
+	<select id="selectOne" parameterType="int" resultType="board">
+		SELECT * FROM board WHERE num = #{num}
+	</select>
+	<select id="selectAll" resultType="board">
+		SELECT * FROM board
+	</select>
+	<select id="selectBoardByPage" resultType="board" parameterType="int"> <!-- 안되면 map -->
+	</select>
+
+</mapper>
