@@ -1,0 +1,91 @@
+게시판 만들기
+게시글CRUD
+게시글쓰기 (파일업로드)
+게시글수정
+게시글삭제
+게시글조회(덧글,파일 다운로드)
+--------기능-----------
+게시글목록보기 :페이징처리 포함
+새글쓰기
+상세글보기
+글 수정
+글 삭제
+-------화면---------- 
+boardList.jsp
+boardWrite.jsp (파일업로드)
+boardView.jsp (파일다운로드, 덧글)
+boardModify.jsp
+boardCheckPass.jsp
+result.jsp
+-----------데이터-----------
+파일 업로드:
+게시글마다 파일 업로드 
+
+
+------------요청정리 -------------------
+/board
+	/boardList 			 : 게시글 목록보기
+	/view      			 : 게시글 상세보기 
+	/write,method = get  : 게시글 작성 양식 요청 
+	/write,method = post : 게시글 작성 요청
+	/modifyForm   		 : 수정양식 요청
+	/modify		         : 수정요청
+	/delete 			 : 게시글 삭제요청	
+	/boardCheckPassForm  : 비밀번호 확인 양식 요청
+	/boardCheckPass 	 : 비밀번호 확인 요청
+    /download            : 첨부파일 다운로드 요청
+
+/replies 
+	 덧글 등록      /replies   method :post
+	 덧글 수정      /replies/{replyNum} method : post
+	 덧글 삭제      /replies/{replyNum} method : delete
+	 덧글 목록      /replies/all/{boardNum} method : get
+
+
+service 메서드 정리
+getBoardList(Map<Strinng,Object> param,int page): Map<String,Object>
+readBoard(int num) : Map<String,Object> : 게시글 하나 정보 가져오기,readCount 증가 
+getBoard(int num) : Map<String,Object> : 게시글 하나 정보 조회
+writeBoard(Map<String,Object> board,MultipartFile file) : boolean
+modifyBoard(Map<String,Object> board) : boolean
+removeBoard(int num) : boolean
+checkPass(Map<String,Object> param) : boolean
+getAttachFile(int num) : File
+
+
+boardDao 수정사항
+selecOne 할 때 첨부파일 있으면 같이 가져오기 
+
+num을 기준으로 게시글 조회할 때, 첨부파일이 잇으면 첨부파일도 같이 조회
+
+num	title name  email  writedate ...... fullNmae
+ 1      제목    홍길동   @.com   18/07/09	 asdfasd-asdfasd-asdf_asdf.jpg
+ 1   제목    홍길동   @.com   18/07/09
+ 
+join을 이용해서 조회 
+
+파일업로드 수정사항
+1. web.xml
+ dispatcher servlet 설정에 multipart-conpig 추가
+2. servlet-context.xml
+ multipartResolver bean 추가
+3. BoardController.java
+ /write를 처리하는 컨트롤러 메서드에 첨부파일(multipartfile)을 받을 수 있게 파라미터에 MultipartFile 추가
+ 
+
+ 덧글
+게시글 상세보기 했을 때,
+게시글 페이지 뜨고 나면 해당하는 게시글 덧글도 같이 조회 하기 
+
+이미지 불러오기
+JSP 내부에서는 경로에 직접 접근 하지 못하기 때문에
+<img>에 src = "경로" 를 적용하기 위해서  경로의 image파일을 내부에 두거나,
+src ="요청" 서버에 이미지 스트림을 얻어 오는 요청을 만들어서 스트림을 받아와서 처리 
+
+spring에서는  @ResposeBody 이용해서 
+이미지를 읽어와 byte[]형태로 반환하면 된다. 
+
+
+로그인 처리
+글쓰기 할 때, 글쓴사람이름 : 현재 로그인한 회원의 이름
+ 
