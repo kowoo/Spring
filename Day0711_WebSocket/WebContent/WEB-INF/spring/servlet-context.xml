@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<context:component-scan base-package="controller"/>
+	<mvc:annotation-driven/>
+	
+	<bean id = "viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<!--  SockJS, Stomp를 이용한 WebSocket 연결 설정 -->	
+	<!-- stomp.jsp -->
+	<websocket:message-broker application-destination-prefix="/client"> <!-- 메시지를 받아서 전달해주는 녀석. 중개인 -->
+		<websocket:stomp-endpoint path="/chat">
+			<websocket:sockjs/>
+		</websocket:stomp-endpoint>
+		<websocket:simple-broker prefix="/topic"/>
+	</websocket:message-broker>
+	
+	<!-- myHandler라는 이름으로 핸들러가 등록되어 있음 -->
+	<!-- 핸들러가 처리할 요청에 대해서 명시하자. -->
+	<!-- webSocketEx.jsp -->
+<!-- 	<websocket:handlers>						chat라는 요청이 오면 처리한다. 얘가 endpoint가 되는 셈 -->
+<!-- 		<websocket:mapping handler="myHandler" path="/chat"/> -->
+<!-- 		<websocket:handshake-interceptors> -->
+<!-- 			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"></bean> -->
+<!-- 		</websocket:handshake-interceptors> -->
+<!-- 		<websocket:sockjs/> -->
+<!-- 	</websocket:handlers> -->
+	
+	<!-- webSocketEx2.jsp -->
+<!-- 		<websocket:handlers>						chat라는 요청이 오면 처리한다. 얘가 endpoint가 되는 셈 -->
+<!-- 		<websocket:mapping handler="myHandler" path="/chat"/> -->
+<!-- 		<websocket:handshake-interceptors> -->
+<!-- 			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"></bean> -->
+<!-- 		</websocket:handshake-interceptors> -->
+<!-- 		 sockjs를 사용하려면 넣어야함. -->
+<!-- 		<websocket:sockjs/> -->
+<!-- 	</websocket:handlers> -->
+</beans>
+
+
+
+
+
