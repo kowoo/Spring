@@ -38,6 +38,7 @@
 		<url-pattern>*.css</url-pattern>
 		<url-pattern>*.js</url-pattern>
 	</servlet-mapping>
+
 	
 	<!-- 주소값 localhsot말고 ip로 하려고 추가했는데 실패 -->
 <!-- 	   <filter> -->
