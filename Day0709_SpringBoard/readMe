@@ -88,4 +88,14 @@ spring에서는  @ResposeBody 이용해서
 
 로그인 처리
 글쓰기 할 때, 글쓴사람이름 : 현재 로그인한 회원의 이름
+
+로그인되었을때만 나머지 기능을 수행할 수 있게만들자
+만들어야하는 것
+	MemberController
+		로그인, 회원가입, 로그아웃 등의 회원관련 요청 처리
+	MemberService
+		회원관련 기능처리
+	MemberDao
+			
+
  

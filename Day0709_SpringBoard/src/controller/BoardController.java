@@ -36,6 +36,7 @@ public class BoardController {
 //		//model.addAttribute("boardList", boardService.boardList());
 //		System.out.println("bList : " + bList);
 //		model.addAttribute("boardList", bList);
+		
 		Map<String, Object> param = new HashMap<String,Object>();
 		param.put("keyword", keyword);
 		param.put("type", type);

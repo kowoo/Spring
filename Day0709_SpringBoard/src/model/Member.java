@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Member {
 	private String id;
-	private String pw;
+	private String password;
 	private String name;
 	private String email;
 	private Date regDate;
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", regDate=" + regDate + "]";
+		return "Member [id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + ", regDate=" + regDate + "]";
 	}
 	public String getId() {
 		return id;
@@ -18,11 +18,11 @@ public class Member {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getPw() {
-		return pw;
+	public String getPassword() {
+		return password;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getName() {
 		return name;

@@ -17,6 +17,14 @@
 		<property name="prefix" value="/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+	
+	<!-- 인터셉터가 가로챌 요청 명시 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/board/*"/>
+			<ref bean="loginCheckIntercepter"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
 
 
