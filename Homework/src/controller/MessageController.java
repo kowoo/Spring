@@ -33,7 +33,7 @@ public class MessageController {
 		if(msgService.addMsg(msg)) {
 			System.out.println("메시지 전송 성공");
 		}else {
-			System.out.prinstln("메시지 전송 실패");
+			System.out.println("메시지 전송 실패");
 			return null;
 		}
 		return "redirect:main";
